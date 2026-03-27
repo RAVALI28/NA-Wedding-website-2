@@ -127,8 +127,8 @@
                   <h1>Abhilash &amp; Nikhila</h1>
                   <br />
                   <img src="images/fprint.png" alt="Abhilash + Nikhila" />
-                  <h2>29.10.2023</h2>
-                  <h2>"I have found the one whom my soul loves."</h2>
+                  <h2>12.04.2026</h2>
+                  <h2>"A lifetime of love begins here."</h2>
                   <div class="flipTimebox">
                     <div class="clock clock-fix"></div>
                   </div>
@@ -161,6 +161,7 @@
                 <p><i class="icon-calendar"></i> 12 April 2026</p>
                 <p><i class="icon-clock"></i> 11:25 AM</p>
                 <p><b>Kalyana Sai Gardens, Wanaparthy</b></p>
+				<p> <a href = "https://maps.app.goo.gl/3BuxifYfeenjTXY17"  target="_blank" class="map-link" > View on Google Maps </a> </p>
               </div>
             </div>
 
@@ -172,8 +173,13 @@
                 <p><i class="icon-calendar"></i> 12 April 2026</p>
                 <p><i class="icon-clock"></i> 8:00 PM</p>
                 <p><b>B.R Convention Hall, Thorrur</b></p>
+				<p> <a href = "https://maps.app.goo.gl/Kes1YR3fQ1S8ATcGA"  target="_blank" class="map-link" > View on Google Maps </a> </p>
               </div>
             </div>
+
+             <div class="timeline-end"></div>
+
+
           </div>
         </div>
       </div>
@@ -266,6 +272,9 @@
 
               <!-- Button -->
               <button type="submit" class="guest-btn">Send Wishes</button>
+			  <p id="success-message" style="display:none; color:#D4AF37; margin-top:10px;">
+                   Your wishes have been sent ❤️
+              </p>
             </form>
           </div>
         </div>
@@ -283,26 +292,27 @@
         </div>
 
         <!-- FORM CARD -->
-        <div class="row">
+   <form id="rsvp-form">
+	     <div class="row">
           <div class="col-md-10 col-md-offset-1">
             <div class="rsvp-card">
               <div class="row">
                 <div class="field">
                   <label>FULL NAME</label>
-                  <input type="text" />
+                  <input type="text" id="rsvp-name"/>
                 </div>
 
                 <div class="field">
                   <label>MOBILE NUMBER</label>
-                  <input type="text" />
+                  <input type="text" id="rsvp-phone" />
                 </div>
               </div>
 
               <div class="center">
                 <label>YOU ARE FROM</label>
                 <div class="toggle-group">
-                  <button>Bride's Side</button>
-                  <button>Groom's Side</button>
+                  <button type="button" id="bride-side" class="side-option">Bride's Side</button>
+                  <button type="button" id="groom-side" class="side-option">Groom's Side</button>
                 </div>
               </div>
 
@@ -318,24 +328,26 @@
                 <div class="box">
                   <label>TOTAL GUESTS</label>
                   <div class="counter">
-                    <button>-</button>
-                    <span>1</span>
-                    <button>+</button>
+                    <button type="button" id="minus">-</button>
+                    <span id="guest-count">1</span>
+                    <button type="button" id="plus">+</button>
                   </div>
                 </div>
               </div>
 
-              <button class="submit-btn">CONFIRM PRESENCE</button>
+              <button type="submit" id="rsvp-btn" class="submit-btn">CONFIRM PRESENCE</button>
+			  <p id="rsvp-message" style="color: green; margin-top: 10px;"></p>
             </div>
           </div>
         </div>
+   </form>
       </div>
     </div>
 
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
-    <!-- clock -->
-    <script src="js/clock.js"></script>
+    <!-- clock  -->
+    <script src="js/clock.js"></script>  
     <!-- jQuery Easing -->
     <script src="js/jquery.easing.1.3.js"></script>
     <!-- Bootstrap -->
@@ -356,7 +368,8 @@
     <script src="js/magnific-popup-options.js"></script>
 
     <!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
-    <script src="js/simplyCountdown.js"></script>
+    <!-- <script src="js/simplyCountdown.js"></script>   -->
+	
     <!-- Main -->
     <script src="js/main.js"></script>
     <center>
@@ -373,5 +386,99 @@
       menu.classList.toggle("active");
     }
   </script>
+
+
+
+
+   <!-- Supabase details (anon public key and  public URL) -->
+   <!-- 1. Load Supabase library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- 2. Initialize -->
+<script>
+  const supabaseClient = supabase.createClient(
+    "https://jwlbskrmoursxjstftnw.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imp3bGJza3Jtb3Vyc3hqc3RmdG53Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM2ODg2MjMsImV4cCI6MjA4OTI2NDYyM30.-bBuY9SS52U6Qn0GF_c4g_86op9WZs226_FnOe_trQc"
+  );
+</script>
+
+<!-- submit  the guest wishes -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById("guest-form");
+
+  form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("guest-name").value;
+    const message = document.getElementById("guest-message").value;
+
+    const { data, error } = await supabaseClient
+      .from("guest_wishes")
+      .insert([{ name, message }]);
+
+    if (error) {
+      console.error(error);
+      alert("Error saving wishes ❌");
+    } else {
+      form.reset();
+
+      const successMsg = document.getElementById("success-message");
+      successMsg.style.display = "block";
+      successMsg.innerText = "✨ Your wishes have been sent!";
+    }
+  });
+
+});
+</script>
+
+
+<!-- RSVP SECTION -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const form = document.getElementById("rsvp-form");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("rsvp-name").value;
+    const phone = document.getElementById("rsvp-phone").value;
+    const guestCount = document.getElementById("guest-count").innerText;
+
+    if (!selectedSide) {
+      document.getElementById("rsvp-message").innerText =
+        "Please select Bride or Groom side";
+      return;
+    }
+
+    const { data, error } = await supabaseClient
+      .from("rsvp")
+      .insert([{
+        name,
+        phone,
+        side: selectedSide,
+        guest_count: parseInt(guestCount)
+      }]);
+
+    if (error) {
+      console.error(error);
+      document.getElementById("rsvp-message").innerText =
+        "Error submitting RSVP ❌";
+    } else {
+      form.reset();
+      document.getElementById("rsvp-message").innerText =
+        "💌 RSVP submitted successfully!";
+    }
+  });
+
+});
+</script>
+
+
+
   </body>
 </html>

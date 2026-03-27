@@ -1757,8 +1757,9 @@ form label {
 
 
 /* ============================= */
-/* EVENTS TIMELINE */
+/*        EVENTS TIMELINE        */
 /* ============================= */
+
 
 /* TIMELINE STYLE */
 
@@ -1783,6 +1784,7 @@ form label {
   max-width: 1100px;
   margin: 0 auto;
   padding: 20px 0;
+  margin-top: 80px;
 }
 
 /* VERTICAL GOLD CENTER LINE */
@@ -1792,11 +1794,62 @@ form label {
   top: 0;
   bottom: 0;
   left: 50%;
-  width: 3px;
+  width: 2px;
   background: linear-gradient(to bottom, #e6c35c, #d4af37, #b8962e);
   transform: translateX(-50%);
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
 }
+
+
+/* TOP ORNATE SHAPE  */
+
+.timeline::after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translateX(-50%) rotate(45deg);
+  background: #D4AF37;
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 3px #fdf8f5,
+    0 0 0 5px #D4AF37;
+}
+
+/* inner decorative dot */
+.timeline::after {
+  box-shadow:
+    0 0 0 3px #fdf8f5,
+    0 0 0 5px #D4AF37,
+    inset 0 0 6px rgba(0,0,0,0.2);
+}
+
+/* BOTTOM ORNATE SHAPE  */
+
+.timeline-end {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translateX(-50%) rotate(45deg);
+  background: #D4AF37;
+  border-radius: 6px;
+  box-shadow:
+    0 0 0 3px #fdf8f5,
+    0 0 0 5px #D4AF37,
+    inset 0 0 6px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+
 
 /* EACH EVENT ROW */
 .timeline-item {
@@ -2075,6 +2128,22 @@ form label {
   cursor: pointer;
 }
 
+.side-option {
+  border: 2px solid #ddd;
+  padding: 12px 20px;
+  cursor: pointer;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+/* HIGHLIGHT SELECTED */
+.side-option.active {
+  background-color: #D4AF37;
+  color: white;
+  border-color: #D4AF37;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
 /* MOBILE */
 @media (max-width: 768px) {
   .row {
@@ -2220,6 +2289,32 @@ form label {
   color: black;
 }
 
+
+/* ============================= */
+/*          TIMER CLOCK          */
+/* ============================= */
+
+.simply-countdown {
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.simply-section {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.simply-amount {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.simply-word {
+  display: block;
+  font-size: 10px;
+  opacity: 0.7;
+}
 
 
 
