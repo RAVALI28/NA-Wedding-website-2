@@ -52,6 +52,9 @@
       href="https://fonts.googleapis.com/css?family=Sofia+Sans+Condensed"
       rel="stylesheet"
     />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <!-- clock   -->
     <link rel="stylesheet" href="css/responsive-clock.css" />
@@ -75,6 +78,8 @@
     <!-- Theme style  -->
     <link rel="stylesheet" href="css/style.css" />
 
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
@@ -86,28 +91,28 @@
   <body>
     <div class="fh5co-loader"></div>
 
-	  <!-- Minimal Navbar -->
-  <div class="minimal-nav">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-  </div>
+ <nav class="fh5co-nav" role="navigation">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2">
+        <div id="fh5co-logo"><a href="#">NA</a></div>
+      </div>
 
-  <!-- Fullscreen Menu -->
-  <div id="menu-overlay" class="menu-overlay">
-    <div class="menu-close" onclick="toggleMenu()">✕</div>
-
-    <ul>
-      <li><a href="#home" onclick="toggleMenu()">Home</a></li>
-      <li><a href="#fh5co-event" onclick="toggleMenu()">Events</a></li>
-      <li><a href="#fh5co-gallery" onclick="toggleMenu()">Gallery</a></li>
-      <li><a href="#fh5co-services" onclick="toggleMenu()">Highlights</a></li>
-      <li><a href="#fh5co-guest-wishes" onclick="toggleMenu()">Wishes</a></li>
-      <li><a href="#fh5co-rsvp" onclick="toggleMenu()">RSVP</a></li>
-    </ul>
+      <div class="col-xs-10 text-right menu-1">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#fh5co-event">Events</a></li>
+          <li><a href="#fh5co-gallery">Gallery</a></li>
+          <li><a href="#fh5co-services">Highlights</a></li>
+          <li><a href="#fh5co-guest-wishes">Wishes</a></li>
+          <li><a href="#fh5co-rsvp">RSVP</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
+ </nav>
 
     <div id="page">
-     
-
       <header
         id="fh5co-header"
         class="fh5co-cover"
@@ -118,17 +123,19 @@
         <div class="overlay"></div>
         <div class="container">
           <div class="row">
-            <div class="col-md-8 col-md-offset-2 text-center">
+            <div class="hero-content">
               <div class="display-t">
                 <div
                   class="display-tc animate-box"
                   data-animate-effect="fadeIn"
                 >
-                  <h1>Abhilash &amp; Nikhila</h1>
-                  <br />
-                  <img src="images/fprint.png" alt="Abhilash + Nikhila" />
-                  <h2>12.04.2026</h2>
-                  <h2>"A lifetime of love begins here."</h2>
+                   <h2 class="hero-small">Just love</h2>
+
+                    <p class="hero-sub">Join us in the celebration of</p>
+
+                    <h1 class="hero-names">Abhilash & Nikhila</h1>
+
+                    <p class="hero-date">April 12, 2026</p>
                   <div class="flipTimebox">
                     <div class="clock clock-fix"></div>
                   </div>
@@ -144,24 +151,91 @@
         </div>
       </header>
 
-      <!-- EVENTS -->
+
+	  <div id="music-control" class="music-btn">🔊</div>
+
+    <!-- ----------------------------------------------------------------  -->
+	  <!--   Our Journey Section  -->
+
+
+<div class="fh5co-section-gray">
+<div class="container">
+		<div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading ">
+              <h2>How It All Began</h2>
+            </div>
+          </div>
+<div class="story-timeline text-center">
+  <div class="story-content">
+  <div class="story-block">	
+    <h3 class="story-step">Match</h3>
+    <p>
+      What began as a simple match soon turned into meaningful conversations — 
+      long calls, shared laughter, and getting to know each other one story at a time.
+    </p>
+  </div>
+
+  <div class="story-block">
+    <h3 class="story-step">Connection</h3>
+    <p>
+      With every passing day, comfort turned into closeness. We shared our thoughts, 
+      dreams, likes, and little moments — building something real and beautiful together.
+    </p>
+  </div>
+
+  <div class="story-block">
+    <h3 class="story-step">Forever</h3>
+    <p>
+      And now, here we are — ready to begin the next chapter of our lives, 
+      hand in hand, with love that feels just right.
+    </p>
+  </div>
+
+  <!--  GOLD DIVIDER -->
+  <div class="gold-divider">
+    <span></span> 
+    ✦
+    <span></span>
+  </div>
+
+  <p class="story-signature">With love, Abhilash & Nikhila</p>
+
+</div>
+	</div>
+	</div>
+	</div>
+
+
+
+
+ <!-- ----------------------------------------------------------------  -->
+      <!-- OLD EVENTS -->
 
       <div id="fh5co-event" class="fh5co-bg">
         <div class="overlay"></div>
 
         <div class="timeline-wrapper">
-          <h2 class="section-title">Events</h2>
+           <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+              <h2>Events</h2>
+            </div>
+          </div>
 
           <div class="timeline">
             <!-- Event 1 -->
             <div class="timeline-item left">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <h3>Wedding (Muhurtham)</h3>
+                <h3 class="event-title">WEDDING (Muhurtham)</h3>
                 <p><i class="icon-calendar"></i> 12 April 2026</p>
                 <p><i class="icon-clock"></i> 11:25 AM</p>
                 <p><b>Kalyana Sai Gardens, Wanaparthy</b></p>
-				<p> <a href = "https://maps.app.goo.gl/3BuxifYfeenjTXY17"  target="_blank" class="map-link" > View on Google Maps </a> </p>
+				<p> <a href = "https://maps.app.goo.gl/3BuxifYfeenjTXY17"  target="_blank" class="map-link" >
+					<i class="fa-solid fa-location-dot map-icon"></i> 
+					View on Google Maps 
+				    </a> 
+				</p>
+  
               </div>
             </div>
 
@@ -169,11 +243,12 @@
             <div class="timeline-item right">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <h3>Reception</h3>
-                <p><i class="icon-calendar"></i> 12 April 2026</p>
+                <h3 class="event-title">RECEPTION</h3>
+                <p><i class="icon-calendar"></i> 14 April 2026</p>
                 <p><i class="icon-clock"></i> 8:00 PM</p>
                 <p><b>B.R Convention Hall, Thorrur</b></p>
-				<p> <a href = "https://maps.app.goo.gl/Kes1YR3fQ1S8ATcGA"  target="_blank" class="map-link" > View on Google Maps </a> </p>
+				<p> <a href = "https://maps.app.goo.gl/Kes1YR3fQ1S8ATcGA"  target="_blank" class="map-link" > 
+					<i class="fa-solid fa-location-dot map-icon"></i> View on Google Maps </a> </p>
               </div>
             </div>
 
@@ -184,14 +259,14 @@
         </div>
       </div>
 
+
+
       <!-- GALLERY -->
 
       <div id="fh5co-gallery" class="fh5co-section-gray">
         <div class="container">
           <div class="row">
-            <div
-              class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box"
-            >
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
               <h2>Gallery</h2>
             </div>
           </div>
@@ -233,7 +308,7 @@
       </div>
 
       
-
+ <!-- ----------------------------------------------------------------  -->
     <!--  Guest Wishes -->
 
     <div id="fh5co-guest-wishes" style="background-color: #fdf8f5;">
@@ -281,6 +356,8 @@
       </div>
     </div>
 
+
+     <!-- ----------------------------------------------------------------  -->
     <!--   RSVP Section  -->
 
     <div id="fh5co-rsvp" class="fh5co-section-gray">
@@ -343,6 +420,9 @@
    </form>
       </div>
     </div>
+
+ <!-- ----------------------------------------------------------------  -->
+	
 
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
@@ -442,6 +522,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.getElementById("rsvp-form");
 
+  let selectedSide = "";
+
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
@@ -478,6 +560,97 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+
+<!-- MUSIC SECTION -->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const music = document.getElementById("bg-music");
+  const btn = document.getElementById("music-control");
+
+  let isPlaying = false;
+  let wasPlayingBeforeHide = false;
+  let hasStartedOnce = false;
+
+  function updateButton() {
+    btn.innerText = isPlaying ? "🔊" : "🔇";
+  }
+
+  function fadeInMusic() {
+    music.volume = 0;
+    music.play().then(() => {
+      let volume = 0;
+      const fade = setInterval(() => {
+        if (volume < 0.3) {
+          volume = Math.min(volume + 0.05, 0.3);
+          music.volume = volume;
+        } else {
+          clearInterval(fade);
+        }
+      }, 100);
+    }).catch(() => {});
+  }
+
+  function startMusicOnce() {
+    if (!hasStartedOnce) {
+      hasStartedOnce = true;
+      isPlaying = true;
+      fadeInMusic();
+      updateButton();
+    }
+  }
+
+  /* Start on first click anywhere */
+  document.addEventListener("click", startMusicOnce, { once: true });
+
+  /* Start on first scroll */
+  window.addEventListener("scroll", startMusicOnce, { once: true, passive: true });
+
+  /* Optional: helps on mobile touch before scroll fully happens */
+  document.addEventListener("touchstart", startMusicOnce, { once: true, passive: true });
+
+  /* Manual toggle */
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    if (!isPlaying) {
+      music.play().then(() => {
+        isPlaying = true;
+        hasStartedOnce = true;
+        music.volume = 0.3;
+        updateButton();
+      }).catch(() => {});
+    } else {
+      music.pause();
+      isPlaying = false;
+      updateButton();
+    }
+  });
+
+  /* Pause when tab/browser hidden, resume when back */
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) {
+      wasPlayingBeforeHide = isPlaying;
+      if (isPlaying) {
+        music.pause();
+      }
+    } else {
+      if (wasPlayingBeforeHide) {
+        music.play().catch(() => {});
+      }
+    }
+  });
+
+  updateButton();
+});
+</script>
+
+
+
+
+<audio id="bg-music" loop>
+  <source src="music/wedding-song.mp3" type="audio/mpeg">
+</audio>
 
 
   </body>
