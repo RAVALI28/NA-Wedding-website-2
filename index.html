@@ -496,12 +496,15 @@
 	
     <!-- Main -->
     <script src="js/main.js"></script>
-    <center>
-      View Source Code on
-      <a href="https://github.com/shyamjos/wedding-website"
-        >GitHub <img src="images/github-logo.png" />
-      </a>
-    </center>
+
+
+    <footer class="custom-footer">
+
+    <p class="footer-names">NIKHILA & ABHILASH</p>
+    <p class="footer-date">April 12, 2026 • Save the Date 💍</p>
+    <p class="footer-msg">Thank you for being part of our journey ❤️</p>
+      
+    </footer>
 
 	 <!-- ✅ ADD SCRIPT HERE -->
   <script>
@@ -621,7 +624,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function fadeInMusic() {
-    music.volume = 0;
+    music.volume = 0.1;
     music.play().then(() => {
       let volume = 0;
       const fade = setInterval(() => {
@@ -643,6 +646,9 @@ document.addEventListener("DOMContentLoaded", function () {
       updateButton();
     }
   }
+
+  // 1. Try to play immediately on load
+  window.addEventListener("load", startMusicOnce);
 
   /* Start on first click anywhere */
   document.addEventListener("click", startMusicOnce, { once: true });
@@ -691,11 +697,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 <audio id="bg-music" loop>
-  <source src="music/kanunna-kalyanam.m4a" type="audio/mpeg">
+  <source src="music/kanunna-kalyanam-2-trimmed.m4a" type="audio/mpeg">
 </audio>
-
 
   </body>
 </html>
