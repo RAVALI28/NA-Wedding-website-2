@@ -95,15 +95,6 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 
-.custom-navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-    padding: 20px 50px;
-    background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-}
 
 #fh5co-header {
   background-position: 0 px 0 px;
@@ -2357,6 +2348,20 @@ form label {
 /* ============================= */
 
 
+.custom-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+
+    overflow: visible;
+}
+
+
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -2369,7 +2374,17 @@ form label {
   height: 80px;
   border-radius: 100%;
   opacity: 0.9;
-  transition: 0.9s;
+  transition: 0.3s ease;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55,  0.8));
+}
+
+.nav-logo img:hover {
+  transform: scale(1.08);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
 }
 
 /* MENU */
@@ -2393,6 +2408,32 @@ form label {
 }
 
 
+@media (max-width: 768px) {
+
+  .nav-menu {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .nav-menu li {
+    flex: 0 0 auto;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+}
+
+
+.fh5co-heading h2.journey-title {
+  font-size: 38px;
+}
 
 
  
