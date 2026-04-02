@@ -151,7 +151,9 @@
       
 
 
-	  <div id="music-control" class="music-btn">🔊</div>
+	  <div id="music-control" class="music-btn">
+        <span class="icon">🎵</span>
+    </div>
 
     <!-- ========================= -->
   <!--         JOURNEY            -->
@@ -608,98 +610,115 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-<!-- MUSIC SECTION -->
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+
   const music = document.getElementById("bg-music");
   const btn = document.getElementById("music-control");
 
   let isPlaying = false;
-  let wasPlayingBeforeHide = false;
   let hasStartedOnce = false;
+  let wasPlayingBeforeHide = false;
+
+  /* 🌸 PETALS FUNCTIONS (ADD HERE) */
+
+  function createPetal() {
+    const petal = document.createElement("div");
+    petal.classList.add("petal");
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.getElementById("petals-container").appendChild(petal);
+
+    setTimeout(() => petal.remove(), 8000);
+  }
+
+  let petalInterval;
+
+  function startPetals() {
+    if (!petalInterval) {
+      petalInterval = setInterval(createPetal, 300);
+    }
+  }
+
+  function stopPetals() {
+    clearInterval(petalInterval);
+    petalInterval = null;
+  }
+
+  /* 🎵 MUSIC FUNCTIONS */
 
   function updateButton() {
-    btn.innerText = isPlaying ? "🔊" : "🔇";
+    btn.querySelector(".icon").innerText = isPlaying ? "🎵" : "🔇";
   }
 
   function fadeInMusic() {
     music.volume = 0.1;
+
     music.play().then(() => {
-      let volume = 0;
-      const fade = setInterval(() => {
-        if (volume < 0.3) {
-          volume = Math.min(volume + 0.05, 0.3);
-          music.volume = volume;
-        } else {
-          clearInterval(fade);
-        }
-      }, 100);
+      isPlaying = true;
+      hasStartedOnce = true;
+
+      startPetals(); // 🌸 START HERE
+
+      updateButton();
     }).catch(() => {});
   }
 
   function startMusicOnce() {
     if (!hasStartedOnce) {
-      hasStartedOnce = true;
-      isPlaying = true;
       fadeInMusic();
-      updateButton();
     }
   }
 
-  // 1. Try to play immediately on load
-  window.addEventListener("load", startMusicOnce);
-
-  /* Start on first click anywhere */
   document.addEventListener("click", startMusicOnce, { once: true });
+  window.addEventListener("scroll", startMusicOnce, { once: true });
 
-  /* Start on first scroll */
-  window.addEventListener("scroll", startMusicOnce, { once: true, passive: true });
+  /* 🔘 TOGGLE BUTTON */
 
-  /* Optional: helps on mobile touch before scroll fully happens */
-  document.addEventListener("touchstart", startMusicOnce, { once: true, passive: true });
-
-  /* Manual toggle */
   btn.addEventListener("click", function (e) {
     e.stopPropagation();
 
     if (!isPlaying) {
-      music.play().then(() => {
-        isPlaying = true;
-        hasStartedOnce = true;
-        music.volume = 0.3;
-        updateButton();
-      }).catch(() => {});
+      fadeInMusic();
     } else {
       music.pause();
       isPlaying = false;
+
+      stopPetals(); // 🌸 STOP HERE
+
       updateButton();
     }
   });
 
-  /* Pause when tab/browser hidden, resume when back */
+  /* 👁️ TAB SWITCH */
+
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
       wasPlayingBeforeHide = isPlaying;
-      if (isPlaying) {
-        music.pause();
-      }
+      if (isPlaying) music.pause();
     } else {
       if (wasPlayingBeforeHide) {
-        music.play().catch(() => {});
+        music.play();
       }
     }
   });
 
   updateButton();
 });
+
 </script>
+
 
 
 
 <audio id="bg-music" loop>
   <source src="music/kanunna-kalyanam-2-trimmed.m4a" type="audio/mpeg">
 </audio>
+
+
+<div id="petals-container"></div>
 
   </body>
 </html>
