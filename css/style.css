@@ -2273,35 +2273,6 @@ form label {
 /*    Middle Initials SECTION         */
 /* ============================= */
 
-/* .initials-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 60px;
-  color: white;
-  text-align: center;
-  margin: 30px 0;
-  letter-spacing: 8px;
-  position: relative;
-  z-index: 2;
-} */
-
-/* .initials-logo {
-  width: 150px;
-  height: 150px;
-  border: 2px solid rgba(255,255,255,0.5);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 30px auto;
-  font-size: 50px;
-} */
-
-/* .initials-logo {
-  backdrop-filter: blur(6px);
-  background: rgba(255,255,255,0.05);
-} */
-
-
 
 /* Letters */
 .initials-logo .letter {
@@ -2436,6 +2407,68 @@ form label {
   max-width: 100%;
   overflow: hidden;
 }
+
+
+/* 🔥 CORE FIX - ALWAYS APPLY */
+.flip-clock-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;                 /* 🚫 prevent breaking */
+  padding-left: 12px;
+}
+
+/* EACH DIGIT BOX */
+.flip-clock-wrapper ul {
+  min-width: 40px;
+  margin: 0 3px;
+}
+
+/* DIVIDERS (: between time) */
+.flip-clock-divider {
+  width: auto;
+  margin: 0 5px;
+}
+
+/* WRAPPER FOR CENTERING */
+.timer-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+@media (max-width: 480px) {
+
+  /* 🔥 shrink full timer */
+  .flip-clock-wrapper {
+    transform: scale(0.75);
+    transform-origin: center;
+  }
+
+  /* reduce box size */
+  .flip-clock-wrapper ul {
+    min-width: 28px;
+    margin: 0 1px;
+  }
+
+  /* hide labels (Days, Hours, etc) */
+  .flip-clock-label {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  .flip-clock-wrapper {
+    transform: scale(0.85);
+  }
+
+}
+
 
 
 /* ============================= */
