@@ -2365,7 +2365,7 @@ form label {
 .hero-sub {
   font-family: 'Poppins', sans-serif;
   color: rgba(255,255,255,0.8);
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .hero-names {
@@ -2383,7 +2383,7 @@ form label {
   letter-spacing: 2px;
 
   margin-bottom: 20px;
-  margin-top: 10px;
+  margin-top: 50px;
 }
 
 .hero-content {
