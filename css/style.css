@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 #fh5co-header {
-  background-image: url("../images/NA-Coupleshoot-1.jpg");
+  background-image: url("../images/NA-coupleshoot-1.jpg");
   /* background-position: 0 px 0 px; */
   background-size: cover;
   background-position: center 20%;
@@ -381,17 +381,67 @@ h1, h2, h3, h4, h5, h6, figure {
   margin: 0 0 10px 1%;
   list-style: none;
   min-height: 400px;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  transition: all 0.5s ease;
+  overflow: hidden;
   float: left;
   clear: left;
   position: relative;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
-  border-radius: 7px;
+  border-radius: 12px;
 }
+
+/* 🔥 ZOOM + LIFT EFFECT */
+#fh5co-gallery-list li:hover {
+  background-size: 115%;   /* THIS is the zoom */
+  transform: translateY(-8px); /* slight lift */
+  box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+}
+
+#fh5co-gallery-list li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  transition: 0.4s ease;
+}
+
+/* 💛 GOLD GLOW */
+#fh5co-gallery-list li:hover::before {
+  background: rgba(212, 175, 55, 0.25);
+}
+
+#fh5co-gallery-list li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+  transition: 0.6s;
+}
+
+#fh5co-gallery-list li:hover::after {
+  left: 120%;
+}
+
+
+
+
+
+
+
+
 @media screen and (max-width: 480px) {
   #fh5co-gallery-list li {
     margin-left: 0;
@@ -889,7 +939,7 @@ form label {
 
 
 .fh5co-heading h2 {
-  font-size: 64px;
+  font-size: 38px;
   margin-bottom: 10px;
   line-height: 1.2;
   font-weight: bold;
@@ -918,7 +968,7 @@ form label {
 
 @media screen and (max-width: 768px) { 
   .fh5co-heading h2 {
-    font-size: 40px;
+    font-size: 38px;
   }
 }
 
