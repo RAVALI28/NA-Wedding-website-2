@@ -97,7 +97,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 
 #fh5co-header {
-  background-image: url("../images/NA-coupleshoot-1.jpg");
+  background-image: url("../images/NA-Coupleshoot-1.jpg");
   /* background-position: 0 px 0 px; */
   background-size: cover;
   background-position: center 20%;
@@ -108,7 +108,7 @@ h1, h2, h3, h4, h5, h6, figure {
 /* Mobile version */
 @media (max-width: 768px) {
   #fh5co-header {
-    background-image: url("../images/NA-coupleshoot-3.jpg");
+    background-image: url("../images/NA-Coupleshoot-3.jpg");
     background-position: center center;
   }
 }
